@@ -44,6 +44,22 @@ func init() {
 	}()
 }
 
+func SetCatchSignals(flag int) {
+	C.rl_catch_signals = C.int(flag)
+}
+
+func ClearSignals() {
+	C.rl_clear_signals()
+}
+
+func CleanupAfterSignel() {
+	C.rl_cleanup_after_signal()
+}
+
+func ResetAfterSignal() {
+	C.rl_reset_after_signal()
+}
+
 // ResizeTerminal updates the internal screen size by reading values from
 // the kernel.
 func ResizeTerminal() {
